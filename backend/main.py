@@ -1,5 +1,3 @@
-from os import remove
-from urllib import response
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -50,7 +48,7 @@ async def put_todo(title: str, description: str):
 
 @app.delete("/api/todo{title}")
 async def delete_todo(title):
-    response = remove_todo(title)
+    response = await remove_todo(title)
     if response:
         return "Successfully deleted Todo Item!"
     raise HTTPException(404, f"There is no Todo Item with this title {title}")

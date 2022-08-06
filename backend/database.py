@@ -1,4 +1,3 @@
-from xml.dom.minidom import Document
 from model import Todo
 
 # MongoDB Driver
